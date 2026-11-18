@@ -4,7 +4,7 @@
 
 GTA 6 launches on consoles on November 19, 2026, and the PC version doesn't have a date yet. If you're waiting for PC, or just haven't made it to your console, that's months of endings, twists and "who dies" clips landing in your feeds. And if you're simply sick of GTA 6 taking over every timeline, you can mute it completely.
 
-![HypeBlock on an X feed](docs/feed.png)
+![HypeBlock: before and after on X](docs/hero.png)
 
 ## What it does
 
@@ -21,9 +21,13 @@ GTA 6 launches on consoles on November 19, 2026, and the PC version doesn't have
 - **Trends cleanup**: removes X trends about the games you've shielded.
 - **Your own topics**: add any game, show or keyword list (e.g. `battlefield 6, bf6`).
 - **Muted accounts**: silence leakers and hype farms.
+- **Smart about "no spoilers"**: titles like "first 30 minutes (no spoilers)" or "spoiler-free review" stay visible.
 - **Works with any spelling**: `GTA 6`, `GTA VI`, `#GTA6`, `gta-6`, `Grand Theft Auto VI`, plus Latin and Cyrillic text.
 
-![HypeBlock on a regular news site](docs/any-site.png)
+<p>
+<img src="docs/youtube.png" width="49%" alt="HypeBlock on YouTube">
+<img src="docs/google.png" width="49%" alt="HypeBlock on Google">
+</p>
 
 Ships with presets for GTA 6, The Witcher 4, Elden Ring, Hollow Knight: Silksong, Resident Evil Requiem, Marvel's Wolverine and 007 First Light.
 

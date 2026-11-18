@@ -59,3 +59,10 @@ test("trends matcher", () => {
 test("parseList", () => {
   assert.deepStrictEqual(U.parseList("a, b\n\nc ,"), ["a", "b", "c"]);
 });
+
+test("'no spoilers' is not a spoiler", () => {
+  assert.strictEqual(m("GTA 6 day one: first 30 minutes (no spoilers)"), null);
+  assert.strictEqual(m("GTA 6 review, spoiler-free"), null);
+  assert.strictEqual(m("Обзор GTA 6 без спойлеров"), null);
+  assert.ok(m("GTA 6 no spoilers here... jk the ending: Jason dies"));
+});

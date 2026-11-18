@@ -53,7 +53,7 @@
     "spoiler", "spoilers", "spoiled", "spoiling", "spoilt",
     "ending", "endings", "true ending", "secret ending", "final mission", "last mission",
     "final boss", "last boss", "finale", "epilogue", "post credits", "post-credits",
-    "plot twist", "twist", "betrayal", "betrays", "dies", "died", "death of", "killed off", "kills",
+    "plot twist", "twist", "betrayal", "betrays", "dies", "died", "death of", "killed off", "kills", "fate",
     "cutscene", "cutscenes", "story recap", "full story", "whole story", "lore dump",
     "leak", "leaks", "leaked", "datamine", "datamined", "dataminers",
     "just finished", "just beat", "beat the game", "finished the game", "100%",
@@ -151,6 +151,9 @@
    * @param input { text: string, handles: string[] }
    * @returns null | { kind: "account" | "muted" | "spoiler", label: string }
    */
+  // "no spoilers", "spoiler-free", "без спойлеров" promise the opposite of a spoiler.
+  const SAFE_PHRASES = /(?<![\p{L}\p{N}])(?:(?:no|zero|without|non)[\s_\-]*spoil(?:er|ers)?|spoil(?:er|ers)?[\s_\-]*free|без[\s_\-]*спойлер(?:ов|а)?|без[\s_\-]*спойлерів)(?![\p{L}\p{N}])/giu;
+
   function match(compiled, input) {
     const text = (input && input.text) || "";
     const handles = (input && input.handles) || [];
@@ -165,7 +168,7 @@
       if (!t.re.test(text)) continue;
       if (t.mode === "mute") return { kind: "muted", label: t.name };
       if (!spoilerChecked) {
-        hasSpoilerWord = !!(compiled.spoilerRe && compiled.spoilerRe.test(text));
+        hasSpoilerWord = !!(compiled.spoilerRe && compiled.spoilerRe.test(text.replace(SAFE_PHRASES, " ")));
         spoilerChecked = true;
       }
       if (hasSpoilerWord) return { kind: "spoiler", label: t.name };
