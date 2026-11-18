@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>HypeBlock</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="28" height="28" />
+    <div class="brand">
+      <h1>HypeBlock</h1>
+      <span class="tag">spoiler &amp; hype blocker</span>
+    </div>
+    <label class="switch" title="Turn HypeBlock on/off">
+      <input type="checkbox" id="enabled" />
+      <span></span>
+    </label>
+  </header>
+
+  <div id="perm" class="perm" hidden>
+    Firefox needs your OK to run on X, YouTube, Reddit and Google.
+    <button id="grant" type="button">Allow</button>
+  </div>
+
+  <section class="stats">
+    <div><b id="today">0</b><span>shielded today</span></div>
+    <div><b id="total">0</b><span>all time</span></div>
+  </section>
+
+  <section>
+    <h2>Where it works</h2>
+    <div class="sites">
+      <label class="row"><input type="checkbox" data-site="x" /> X</label>
+      <label class="row"><input type="checkbox" data-site="youtube" /> YouTube</label>
+      <label class="row"><input type="checkbox" data-site="reddit" /> Reddit</label>
+      <label class="row"><input type="checkbox" data-site="google" /> Google</label>
+    </div>
+    <div id="here" class="here" hidden>
+      <span id="hereHost"></span>
+      <button id="hereBtn" type="button">Enable on this site</button>
+    </div>
+    <div id="extra"></div>
+  </section>
+
+  <section>
+    <h2>Games</h2>
+    <p class="hint"><b>Spoilers</b> hides posts that mention the game <i>and</i> sound like a spoiler. <b>Mute</b> hides every mention.</p>
+    <div id="topics"></div>
+    <form id="addTopic" class="add">
+      <input id="newName" placeholder="Add a game or topic (e.g. Battlefield 6)" required />
+      <input id="newKeywords" placeholder="Keywords, comma separated: battlefield 6, bf6" />
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>When a post matches</h2>
+    <div class="seg wide" id="action">
+      <label><input type="radio" name="action" value="blur" /><span>Blur with “show”</span></label>
+      <label><input type="radio" name="action" value="hide" /><span>Hide completely</span></label>
+    </div>
+    <label class="row"><input type="checkbox" id="blockAllVideos" /> Block <b>all</b> videos on X (click to play)</label>
+    <label class="row"><input type="checkbox" id="hideTrends" /> Hide X trends about these games</label>
+  </section>
+
+  <details>
+    <summary>Advanced</summary>
+    <label class="field">Spoiler words
+      <textarea id="spoilerTerms" rows="4"></textarea>
+    </label>
+    <label class="field">Muted accounts (leakers, hype farms)
+      <textarea id="blockedAccounts" rows="2" placeholder="@someleaker, @hypeaccount"></textarea>
+    </label>
+    <button id="resetTerms" type="button" class="link">Reset spoiler words</button>
+  </details>
+
+  <footer>Runs 100% locally. Collects nothing.</footer>
+
+  <script src="../src/filters.js"></script>
+  <script src="../src/adapters.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* HypeBlock — styles injected into x.com */
+
+/* overlay mode */
+.hypeblock-flagged {
+  overflow: hidden !important;
+}
+
+.hypeblock-flagged.hypeblock-small {
+  min-height: 42px;
+}
+
+.hypeblock-flagged.hypeblock-big {
+  min-height: 96px;
+}
+
+/* bar-above mode (shadow-DOM hosts like Reddit posts) */
+.hypeblock-banner-blur {
+  filter: blur(14px) saturate(0.6) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.hypeblock-vid-blocked {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* blur light-DOM children; backdrop-filter on the cover catches the rest */
+.hypeblock-flagged > :not(.hypeblock-cover) {
+  filter: blur(18px) saturate(0.6);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hypeblock-hidden {
+  display: none !important;
+}
+
+.hypeblock-trend-hidden {
+  display: none !important;
+}
+
+.hypeblock-vid-blocked > :not(.hypeblock-cover) {
+  filter: blur(24px) brightness(0.5);
+  pointer-events: none;
+}
+
+.hypeblock-cover {
+  position: absolute;
+  inset: 6px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 14px;
+  background: rgba(10, 10, 14, 0.55);
+  border: 1px solid rgba(198, 255, 61, 0.35);
+  color: #f4f4f5;
+  font: 500 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+  cursor: default;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-sizing: border-box;
+}
+
+.hypeblock-cover.hypeblock-compact {
+  inset: 2px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 0 8px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.hypeblock-cover.hypeblock-banner {
+  position: static;
+  inset: auto;
+  margin: 4px 0;
+  padding: 6px 10px;
+  justify-content: flex-start;
+  background: rgba(10, 10, 14, 0.85);
+  backdrop-filter: none;
+}
+
+.hypeblock-cover [data-label]::before {
+  content: attr(data-label);
+}
+
+.hypeblock-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e0e12;
+  background: #c6ff3d;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.hypeblock-compact .hypeblock-detail {
+  font-size: 13px;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.hypeblock-compact .hypeblock-badge,
+.hypeblock-compact .hypeblock-reveal {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hypeblock-detail {
+  font-size: 15px;
+  font-weight: 600;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hypeblock-reveal {
+  all: unset;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c6ff3d;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(198, 255, 61, 0.5);
+}
+
+.hypeblock-reveal:hover {
+  background: rgba(198, 255, 61, 0.15);
+}
+
+/* pictures matched by their alt text */
+img.hypeblock-img-blur {
+  filter: blur(22px) saturate(0.5) !important;
+  cursor: pointer !important;
+  outline: 2px solid rgba(198, 255, 61, 0.6);
+  outline-offset: -2px;
+}
