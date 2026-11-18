@@ -90,6 +90,10 @@ popup/              settings UI
 tests/              node:test suite
 ```
 
+## Disclaimer
+
+HypeBlock is an unofficial fan project. It is not affiliated with, endorsed by, or connected to Rockstar Games or Take-Two Interactive, and it is not an advertisement for GTA 6. Grand Theft Auto and GTA are trademarks of Take-Two Interactive Software, Inc. Other game names are trademarks of their respective owners and are used only to describe what the extension filters.
+
 ## License
 
 MIT
